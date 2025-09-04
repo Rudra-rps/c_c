@@ -1,0 +1,46 @@
+import React from 'react';
+
+const Hero = () => {
+  const scrollToForm = () => {
+    document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-brand-purple/40 blur-[150px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-brand-red/30 blur-[150px] rounded-full"></div>
+      
+      <div className="relative z-10 flex flex-col items-center">
+        <div className="relative mb-8">
+          <div className="logo-wrap">
+            <img 
+              src="/src/assets/Chain Chapter.png" 
+              alt="Chain Chapter Logo" 
+              className="w-30 h-30 md:w-32 md:h-32 logo-animated" 
+            />
+          </div>
+        </div>
+
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 max-w-4xl leading-tight">
+          Chain Chapter – The Community of <span className="text-gradient">Future Builders</span>
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+          Join thousands of students in the premier blockchain education community. Participate in hackathons, attend seminars, join webinars, and unlock career opportunities in Web3.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button 
+            onClick={scrollToForm}
+            className="px-8 py-4 font-bold text-white rounded-lg btn-gradient transition-all duration-300 hover:scale-105 hover:shadow-neon-cyan"
+          >
+            Join Now
+          </button>
+          <button className="px-8 py-4 font-bold bg-white/10 border border-white/20 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:border-white/30">
+            Explore Opportunities
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
