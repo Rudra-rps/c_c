@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import AmbassadorModal from './AmbassadorModal';
+import chainChapterLogo from '../assets/Chain Chapter.png';
 
 const Hero = () => {
-  const scrollToForm = () => {
-    document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [modalOpen, setModalOpen] = useState(false);
+  const openApplication = () => setModalOpen(true);
+  const closeApplication = () => setModalOpen(false);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+    <section id="who-we-are" className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-brand-purple/40 blur-[150px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-brand-red/30 blur-[150px] rounded-full"></div>
       
@@ -14,7 +16,7 @@ const Hero = () => {
         <div className="relative mb-8">
           <div className="logo-wrap">
             <img 
-              src="/src/assets/Chain Chapter.png" 
+              src={chainChapterLogo} 
               alt="Chain Chapter Logo" 
               className="w-30 h-30 md:w-32 md:h-32 logo-animated" 
             />
@@ -29,7 +31,8 @@ const Hero = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <button 
-            onClick={scrollToForm}
+            ref={useRef<HTMLButtonElement | null>(null)}
+            onClick={openApplication}
             className="px-8 py-4 font-bold text-white rounded-lg btn-gradient transition-all duration-300 hover:scale-105 hover:shadow-neon-cyan"
           >
             Join Now
@@ -39,6 +42,7 @@ const Hero = () => {
           </button>
         </div>
       </div>
+  <AmbassadorModal open={modalOpen} onClose={closeApplication} />
     </section>
   );
 };

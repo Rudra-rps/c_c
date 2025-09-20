@@ -12,7 +12,7 @@ const opportunities = [
 
 const Opportunities = () => {
   return (
-    <section className="py-20 px-4 bg-black/20">
+    <section id="what-we-do" className="py-20 px-4 bg-black/20">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Calendar, Clock, MapPin } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const events = [
   { title: 'DeFi Deep Dive', date: 'Oct 28, 2025', time: '4:00 PM UTC', location: 'Virtual / Discord', bg: 'https://images.pexels.com/photos/7788009/pexels-photo-7788009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' },
@@ -25,7 +25,7 @@ const Events = () => {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section id="events" className="py-20 px-4">
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
           Upcoming <span className="text-gradient">Events</span>
@@ -33,27 +33,27 @@ const Events = () => {
         <p className="text-lg text-gray-400">Don't miss out on our next big thing.</p>
       </div>
       <div className="max-w-5xl mx-auto relative">
-        <div className="overflow-hidden rounded-2xl">
-          <AnimatePresence initial={false}>
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="w-full h-[500px] relative"
-            >
-              <img src={events[currentIndex].bg} alt={events[currentIndex].title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/60 flex flex-col justify-end p-8">
-                <h3 className="text-3xl font-bold mb-4">{events[currentIndex].title}</h3>
-                <div className="flex flex-col md:flex-row md:items-center gap-4 text-gray-300">
-                  <div className="flex items-center gap-2"><Calendar size={18} /><span>{events[currentIndex].date}</span></div>
-                  <div className="flex items-center gap-2"><Clock size={18} /><span>{events[currentIndex].time}</span></div>
-                  <div className="flex items-center gap-2"><MapPin size={18} /><span>{events[currentIndex].location}</span></div>
+        <div className="overflow-hidden rounded-2xl h-[500px]">
+          {/* single sliding track to avoid unmount/mount glitches */}
+          <motion.div
+            className="flex w-full h-full"
+            animate={{ x: `-${currentIndex * 100}%` }}
+            transition={{ type: 'spring', stiffness: 200, damping: 30 }}
+          >
+            {events.map((ev, idx) => (
+              <div key={idx} className="w-full flex-shrink-0 h-full relative">
+                <img src={ev.bg} alt={ev.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/60 flex flex-col justify-end p-8">
+                  <h3 className="text-3xl font-bold mb-4">{ev.title}</h3>
+                  <div className="flex flex-col md:flex-row md:items-center gap-4 text-gray-300">
+                    <div className="flex items-center gap-2"><Calendar size={18} /><span>{ev.date}</span></div>
+                    <div className="flex items-center gap-2"><Clock size={18} /><span>{ev.time}</span></div>
+                    <div className="flex items-center gap-2"><MapPin size={18} /><span>{ev.location}</span></div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            ))}
+          </motion.div>
         </div>
         <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-[-20px] md:left-[-30px] bg-white/10 p-3 rounded-full backdrop-blur-sm hover:bg-white/20 transition-colors">
           <ChevronLeft size={24} />

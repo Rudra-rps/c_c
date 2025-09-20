@@ -29,9 +29,9 @@ const InstagramClips: React.FC = () => {
 
   useEffect(() => {
     // When index changes try to process Instagram embeds if the script is loaded
-    // @ts-ignore
+    // @ts-expect-error - Instagram embed script adds instgrm to window
     if (window.instgrm && typeof window.instgrm.Embeds?.process === 'function') {
-      // @ts-ignore
+      // @ts-expect-error - Instagram embed script adds instgrm to window
       window.instgrm.Embeds.process();
     }
   }, [index]);
