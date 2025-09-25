@@ -24,7 +24,7 @@ const Hero = () => {
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 max-w-4xl leading-tight">
-          Chain Chapter – The Community of <span className="text-gradient">Future Builders</span>
+          Chain Chapter ⇀ THE N3XT GEN OF <span className="text-gradient">WEB 3 ARCHITECTS</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
           Join thousands of students in the premier blockchain education community. Participate in hackathons, attend seminars, join webinars, and unlock career opportunities in Web3.
@@ -36,9 +36,6 @@ const Hero = () => {
             className="px-8 py-4 font-bold text-white rounded-lg btn-gradient transition-all duration-300 hover:scale-105 hover:shadow-neon-cyan"
           >
             Join Now
-          </button>
-          <button className="px-8 py-4 font-bold bg-white/10 border border-white/20 rounded-lg backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:border-white/30">
-            Explore Opportunities
           </button>
         </div>
       </div>
