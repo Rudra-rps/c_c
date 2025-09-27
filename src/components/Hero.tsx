@@ -18,7 +18,7 @@ const Hero = () => {
             <img 
               src={chainChapterLogo} 
               alt="Chain Chapter Logo" 
-              className="w-30 h-30 md:w-32 md:h-32 logo-animated" 
+              className="w-36 h-36 md:w-40 md:h-40 logo-animated" 
             />
           </div>
         </div>
@@ -30,13 +30,14 @@ const Hero = () => {
           Join thousands of students in the premier blockchain education community. Participate in hackathons, attend seminars, join webinars, and unlock career opportunities in Web3.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <button 
-            ref={useRef<HTMLButtonElement | null>(null)}
-            onClick={openApplication}
+          <a 
+            href="https://luma.com/mgei48uj" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="px-8 py-4 font-bold text-white rounded-lg btn-gradient transition-all duration-300 hover:scale-105 hover:shadow-neon-cyan"
           >
             Join Now
-          </button>
+          </a>
         </div>
       </div>
   <AmbassadorModal open={modalOpen} onClose={closeApplication} />
