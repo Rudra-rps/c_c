@@ -80,9 +80,9 @@ const MemoryLane: React.FC = () => {
   const items = [...images, ...images]; // duplicate for infinite scroll illusion
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-12 sm:py-14 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <h3 className="text-3xl font-bold text-center mb-6">Memory Down the Lane</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 px-2">Memory Down the Lane</h3>
 
         <div
           className="memory-rail overflow-hidden cursor-grab"

@@ -25,15 +25,15 @@ const Events = () => {
   };
 
   return (
-    <section id="events" className="py-20 px-4">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+    <section id="events" className="py-12 sm:py-16 md:py-20 px-4">
+      <div className="text-center mb-8 sm:mb-10 md:mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-2">
           Upcoming <span className="text-gradient">Events</span>
         </h2>
-        <p className="text-lg text-gray-400">Don't miss out on our next big thing.</p>
+        <p className="text-base sm:text-lg text-gray-400 px-2">Don't miss out on our next big thing.</p>
       </div>
-      <div className="max-w-5xl mx-auto relative">
-        <div className="overflow-hidden rounded-2xl h-[500px]">
+      <div className="max-w-5xl mx-auto relative px-8 sm:px-12">
+        <div className="overflow-hidden rounded-2xl h-[400px] sm:h-[450px] md:h-[500px]">
           {/* single sliding track to avoid unmount/mount glitches */}
           <motion.div
             className="flex w-full h-full"
@@ -43,23 +43,23 @@ const Events = () => {
             {events.map((ev, idx) => (
               <div key={idx} className="w-full flex-shrink-0 h-full relative">
                 <img src={ev.bg} alt={ev.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/60 flex flex-col justify-end p-8">
-                  <h3 className="text-3xl font-bold mb-4">{ev.title}</h3>
-                  <div className="flex flex-col md:flex-row md:items-center gap-4 text-gray-300">
-                    <div className="flex items-center gap-2"><Calendar size={18} /><span>{ev.date}</span></div>
-                    <div className="flex items-center gap-2"><Clock size={18} /><span>{ev.time}</span></div>
-                    <div className="flex items-center gap-2"><MapPin size={18} /><span>{ev.location}</span></div>
+                <div className="absolute inset-0 bg-black/60 flex flex-col justify-end p-4 sm:p-6 md:p-8">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4">{ev.title}</h3>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm sm:text-base text-gray-300">
+                    <div className="flex items-center gap-2"><Calendar size={16} className="sm:w-[18px] sm:h-[18px]" /><span>{ev.date}</span></div>
+                    <div className="flex items-center gap-2"><Clock size={16} className="sm:w-[18px] sm:h-[18px]" /><span>{ev.time}</span></div>
+                    <div className="flex items-center gap-2"><MapPin size={16} className="sm:w-[18px] sm:h-[18px]" /><span>{ev.location}</span></div>
                   </div>
                 </div>
               </div>
             ))}
           </motion.div>
         </div>
-        <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-[-20px] md:left-[-30px] bg-white/10 p-3 rounded-full backdrop-blur-sm hover:bg-white/20 transition-colors">
-          <ChevronLeft size={24} />
+        <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-2 bg-white/10 p-2 sm:p-3 rounded-full backdrop-blur-sm hover:bg-white/20 transition-colors z-10" aria-label="Previous event">
+          <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
         </button>
-        <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-[-20px] md:right-[-30px] bg-white/10 p-3 rounded-full backdrop-blur-sm hover:bg-white/20 transition-colors">
-          <ChevronRight size={24} />
+        <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-2 bg-white/10 p-2 sm:p-3 rounded-full backdrop-blur-sm hover:bg-white/20 transition-colors z-10" aria-label="Next event">
+          <ChevronRight size={20} className="sm:w-6 sm:h-6" />
         </button>
       </div>
     </section>

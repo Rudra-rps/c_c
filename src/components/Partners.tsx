@@ -4,15 +4,15 @@ import finafarmLogo from '../assets/finafarm_logo.svg';
 
 const partners = [
   { name: 'Hive', href: 'https://hive.io', src: hiveLogo },
-  { name: 'FinaFarm', href: 'https://finafarm.example', src: finafarmLogo },
+  { name: 'FinaFarm', href: 'https://www.finfarm.in/', src: finafarmLogo },
 ];
 
 const Partners: React.FC = () => {
   return (
-    <section className="py-12 px-4">
+    <section className="py-10 sm:py-12 px-4">
       <div className="max-w-6xl mx-auto text-center">
-        <h3 className="text-3xl font-bold mb-6">Our Partners</h3>
-        <div className="flex items-center justify-center gap-8 flex-wrap">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 px-2">Our Partners</h3>
+        <div className="flex items-center justify-center gap-6 sm:gap-8 flex-wrap">
           {partners.map((p) => (
             <a
               key={p.name}

@@ -36,22 +36,21 @@ const Navbar = () => {
       }`}
       style={{
         borderRadius: '0 0 20px 20px',
-        margin: '0 16px',
-        width: 'calc(100% - 32px)',
-        maxWidth: 'calc(100vw - 32px)',
+        margin: '0 8px',
+        width: 'calc(100% - 16px)',
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <img 
               src={chainChapterLogo} 
               alt="Chain Chapter" 
-              className="w-8 h-8 object-contain"
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
             />
-            <span className="text-white font-semibold text-lg">Chain Chapter</span>
+            <span className="text-white font-semibold text-base sm:text-lg">Chain Chapter</span>
           </div>
 
           {/* Desktop Navigation */}

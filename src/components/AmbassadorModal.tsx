@@ -56,7 +56,7 @@ const AmbassadorModal: React.FC<Props> = ({ open, onClose }) => {
   return (
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4 py-4 sm:py-8">
           <motion.div
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={onClose}
@@ -75,12 +75,12 @@ const AmbassadorModal: React.FC<Props> = ({ open, onClose }) => {
             role="dialog"
             aria-modal="true"
           >
-            <div ref={panelRef} className="glass-card rounded-2xl overflow-hidden max-h-[85vh]">
-              <div className="p-6 border-b border-white/6 flex items-center justify-between">
-                <h2 className="text-2xl font-bold">Ambassador Application</h2>
-                <button onClick={onClose} aria-label="Close" className="text-gray-300 px-3 py-1">✕</button>
+            <div ref={panelRef} className="glass-card rounded-xl sm:rounded-2xl overflow-hidden max-h-[90vh] sm:max-h-[85vh]">
+              <div className="p-4 sm:p-6 border-b border-white/6 flex items-center justify-between">
+                <h2 className="text-xl sm:text-2xl font-bold">Ambassador Application</h2>
+                <button onClick={onClose} aria-label="Close" className="text-gray-300 px-3 py-1 text-lg sm:text-xl">✕</button>
               </div>
-              <div className="p-6 overflow-auto" style={{ maxHeight: 'calc(85vh - 80px)' }}>
+              <div className="p-4 sm:p-6 overflow-auto" style={{ maxHeight: 'calc(90vh - 70px)' }}>
                 <AmbassadorForm />
               </div>
             </div>
